@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6233" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A278b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6233"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,7 +12,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
@@ -670,11 +671,87 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
             <view key="contentView" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <animations/>
             </view>
+            <point key="canvasLocation" x="305" y="363"/>
+        </window>
+        <window title="New Issue" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="wbn-1d-5cM" customClass="NSPanel">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="113" y="439" width="480" height="262"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <view key="contentView" id="Dca-Xo-7xn">
+                <rect key="frame" x="0.0" y="3" width="480" height="262"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GCR-PP-mX9">
+                        <rect key="frame" x="20" y="221" width="258" height="22"/>
+                        <animations/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Issue Title" drawsBackground="YES" id="1ey-eK-9Ok">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9QP-9Z-U4T">
+                        <rect key="frame" x="20" y="49" width="440" height="161"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="161" id="8zn-Cj-UOy"/>
+                        </constraints>
+                        <animations/>
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Issue description" drawsBackground="YES" id="ajh-5B-MPL">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X3k-xE-ubx">
+                        <rect key="frame" x="284" y="218" width="179" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="174" id="ROd-8P-e3y"/>
+                        </constraints>
+                        <animations/>
+                        <popUpButtonCell key="cell" type="push" title="Plan A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="d95-1E-Xpf" id="GQw-Vm-sbn">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="oqr-zJ-LgB">
+                                <items>
+                                    <menuItem title="Plan A" id="d95-1E-Xpf"/>
+                                    <menuItem title="Silent Cell" id="3fB-F8-j2L"/>
+                                    <menuItem title="Pandora B" id="fgR-kf-DbO"/>
+                                    <menuItem title="Support" id="3Jc-uI-jhZ"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-aK-ob0">
+                        <rect key="frame" x="359" y="13" width="107" height="32"/>
+                        <animations/>
+                        <buttonCell key="cell" type="push" title="Send Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ASR-BE-Neg">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                        </buttonCell>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9QP-9Z-U4T" firstAttribute="leading" secondItem="GCR-PP-mX9" secondAttribute="leading" id="ENT-89-8dh"/>
+                    <constraint firstItem="AmI-aK-ob0" firstAttribute="top" secondItem="9QP-9Z-U4T" secondAttribute="bottom" constant="8" symbolic="YES" id="K7Q-PO-XDA"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="top" secondItem="Dca-Xo-7xn" secondAttribute="top" constant="20" symbolic="YES" id="PVh-GO-Fyu"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="trailing" secondItem="9QP-9Z-U4T" secondAttribute="trailing" id="QlX-X5-CN4"/>
+                    <constraint firstAttribute="trailing" secondItem="X3k-xE-ubx" secondAttribute="trailing" constant="20" symbolic="YES" id="SYa-Dt-2Zg"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="leading" secondItem="GCR-PP-mX9" secondAttribute="trailing" constant="8" symbolic="YES" id="X13-aN-ctq"/>
+                    <constraint firstAttribute="bottom" secondItem="AmI-aK-ob0" secondAttribute="bottom" constant="20" symbolic="YES" id="cJI-mc-RSh"/>
+                    <constraint firstItem="AmI-aK-ob0" firstAttribute="trailing" secondItem="9QP-9Z-U4T" secondAttribute="trailing" id="vpY-Gf-sX9"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="baseline" secondItem="GCR-PP-mX9" secondAttribute="baseline" id="wa2-NB-bfF"/>
+                    <constraint firstItem="GCR-PP-mX9" firstAttribute="leading" secondItem="Dca-Xo-7xn" secondAttribute="leading" constant="20" symbolic="YES" id="yAc-48-SkJ"/>
+                </constraints>
+                <animations/>
+            </view>
+            <point key="canvasLocation" x="297" y="388"/>
         </window>
     </objects>
 </document>

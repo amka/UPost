@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09159BD8B37E2738E4D07654 /* libPods-UPost.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C7E47C6296FD78DBE25CF05 /* libPods-UPost.a */; };
 		2AD4AC6C1B96197600021DBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD4AC6B1B96197600021DBE /* AppDelegate.m */; };
 		2AD4AC6E1B96197600021DBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD4AC6D1B96197600021DBE /* main.m */; };
 		2AD4AC701B96197600021DBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD4AC6F1B96197600021DBE /* Images.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A996C7271C701FD2C52EF51 /* Pods-UPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPost.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UPost/Pods-UPost.debug.xcconfig"; sourceTree = "<group>"; };
 		2AD4AC651B96197600021DBE /* UPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD4AC691B96197600021DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD4AC6A1B96197600021DBE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +37,8 @@
 		2AD4AC781B96197600021DBE /* UPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD4AC7D1B96197600021DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD4AC7E1B96197600021DBE /* UPostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPostTests.m; sourceTree = "<group>"; };
+		7C7E47C6296FD78DBE25CF05 /* libPods-UPost.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPost.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		978778CE21F94C64E9366C8C /* Pods-UPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPost/Pods-UPost.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09159BD8B37E2738E4D07654 /* libPods-UPost.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +66,8 @@
 				2AD4AC671B96197600021DBE /* UPost */,
 				2AD4AC7B1B96197600021DBE /* UPostTests */,
 				2AD4AC661B96197600021DBE /* Products */,
+				9A84FE5EAFD7A0AF1BE4CCCD /* Pods */,
+				AD437E1E28780D48E0A5F51C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +118,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9A84FE5EAFD7A0AF1BE4CCCD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1A996C7271C701FD2C52EF51 /* Pods-UPost.debug.xcconfig */,
+				978778CE21F94C64E9366C8C /* Pods-UPost.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AD437E1E28780D48E0A5F51C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7C7E47C6296FD78DBE25CF05 /* libPods-UPost.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,9 +142,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2AD4AC821B96197600021DBE /* Build configuration list for PBXNativeTarget "UPost" */;
 			buildPhases = (
+				339C82106C3900630448C070 /* Check Pods Manifest.lock */,
 				2AD4AC611B96197600021DBE /* Sources */,
 				2AD4AC621B96197600021DBE /* Frameworks */,
 				2AD4AC631B96197600021DBE /* Resources */,
+				352EEF005D5EEF1F3F614C51 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -204,6 +230,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		339C82106C3900630448C070 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		352EEF005D5EEF1F3F614C51 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UPost/Pods-UPost-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2AD4AC611B96197600021DBE /* Sources */ = {
@@ -326,6 +385,7 @@
 		};
 		2AD4AC831B96197600021DBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A996C7271C701FD2C52EF51 /* Pods-UPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -337,6 +397,7 @@
 		};
 		2AD4AC841B96197600021DBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978778CE21F94C64E9366C8C /* Pods-UPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -401,6 +462,7 @@
 				2AD4AC841B96197600021DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2AD4AC851B96197600021DBE /* Build configuration list for PBXNativeTarget "UPostTests" */ = {
 			isa = XCConfigurationList;
@@ -409,6 +471,7 @@
 				2AD4AC871B96197600021DBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
