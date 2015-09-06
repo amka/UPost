@@ -13,8 +13,8 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="UPost" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="263"/>
+            <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="706" width="480" height="263"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="5" width="480" height="263"/>
@@ -90,9 +90,9 @@ DQ
                         </popUpButtonCell>
                     </popUpButton>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-8u-3Z7">
-                        <rect key="frame" x="121" y="17" width="100" height="26"/>
+                        <rect key="frame" x="121" y="17" width="128" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="95" id="bGt-Id-jLI"/>
+                            <constraint firstAttribute="width" constant="123" id="bGt-Id-jLI"/>
                         </constraints>
                         <popUpButtonCell key="cell" type="push" title="Code-Review" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Pbs-vY-0Uy" id="6c6-IB-zOl">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -130,7 +130,7 @@ DQ
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="304" y="525.5"/>
+            <point key="canvasLocation" x="402" y="388.5"/>
         </window>
     </objects>
 </document>

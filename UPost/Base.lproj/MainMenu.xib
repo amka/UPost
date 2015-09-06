@@ -794,7 +794,7 @@ DQ
             <items>
                 <menuItem title="New Issue" keyEquivalent="s" id="Dti-e0-RKa">
                     <connections>
-                        <action selector="newIssueAction:" target="Voe-Tx-rLC" id="E1E-4Q-gAv"/>
+                        <action selector="newIssueAction:" target="Voe-Tx-rLC" id="0SD-gi-LaG"/>
                     </connections>
                 </menuItem>
                 <menuItem isSeparatorItem="YES" id="BmR-DF-hAT"/>

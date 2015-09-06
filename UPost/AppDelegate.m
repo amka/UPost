@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 #import <CCNPreferencesWindowController.h>
 
+#import "IssueWindowController.h"
 #import "PreferencesGeneralViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -18,6 +20,7 @@
 
 @property (strong) CCNPreferencesWindowController *preferences;
 @property (strong) NSStatusItem *statusBarItem;
+@property (strong) IssueWindowController *issueWindowController;
 
 - (IBAction)newIssueAction:(id)sender;
 - (IBAction)showPreferencesAction:(id)sender;
@@ -51,6 +54,10 @@
 }
 
 - (IBAction)newIssueAction:(id)sender {
+    if (!self.issueWindowController) {
+        self.issueWindowController = [[IssueWindowController alloc] initWithWindowNibName:@"IssueWindow"];
+    }
+    [self.issueWindowController showWindow:self];
 }
 
 - (IBAction)showPreferencesAction:(id)sender {
