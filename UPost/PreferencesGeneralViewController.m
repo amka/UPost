@@ -54,6 +54,9 @@
 - (NSString *)preferenceTitle { return @"General"; }
 - (NSImage *)preferenceIcon { return [NSImage imageNamed:NSImageNamePreferencesGeneral]; }
 
+
+# pragma mark — Preferences Actions
+
 - (IBAction)signInAction:(id)sender {
     
     if (_youtrackHost.stringValue.length <= 0) {
@@ -67,6 +70,9 @@
     if (_youtrackPassword.stringValue.length <= 0) {
         [_youtrackPassword becomeFirstResponder];
     }
+    
+    [self disableYoutrackFields];
+    [self.progressIndicator startAnimation:nil];
     
     NSLog(@"YT BASE URL: %@", [[YTAPIManager sharedManager] baseURL]);
     
@@ -85,6 +91,7 @@
         // F
         NSLog(@"GOT AN ERROR: %@", error.description);
         [self.progressIndicator stopAnimation:nil];
+        [self enableYoutrackFields];
     }];
 }
 
@@ -114,5 +121,18 @@
     }];
     
     [self.signinFormView replaceSubview:self.signInView with:self.signedView];
+    [self enableYoutrackFields];
+}
+
+
+#pragma mark — UI bulk changes
+
+- (void)disableYoutrackFields {
+    self.youtrackHost.enabled = self.youtrackLogin.enabled = self.youtrackPassword.enabled = NO;
+}
+
+
+- (void)enableYoutrackFields {
+    self.youtrackHost.enabled = self.youtrackLogin.enabled = self.youtrackPassword.enabled = YES;
 }
 @end
