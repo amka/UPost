@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="IssueWindowController">
+            <connections>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="UPost" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="480" height="263"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="5" width="480" height="263"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ybq-Zf-V9H">
+                        <rect key="frame" x="20" y="221" width="258" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Issue Title" drawsBackground="YES" id="R4U-h6-VCX">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="h2K-cG-Z8F">
+                        <rect key="frame" x="20" y="49" width="440" height="161"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="161" id="RcA-Sk-kiO"/>
+                        </constraints>
+                        <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Issue description" drawsBackground="YES" id="PyR-AH-8cY">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EJV-Ob-uUB">
+                        <rect key="frame" x="284" y="218" width="179" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="174" id="lkx-8E-FiX"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Plan A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="vE0-gx-GHJ" id="v8d-mc-tOJ">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="vka-ih-Bbv">
+                                <items>
+                                    <menuItem title="Plan A" state="on" id="vE0-gx-GHJ"/>
+                                    <menuItem title="Silent Cell" id="IxP-67-6x5"/>
+                                    <menuItem title="Pandora B" id="f9U-PP-LBv"/>
+                                    <menuItem title="Support" id="8Iu-Zr-g9E"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-6W-Zgr">
+                        <rect key="frame" x="359" y="13" width="107" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="3fp-l4-7mq"/>
+                        </constraints>
+                        <buttonCell key="cell" type="push" title="Send Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="3Qe-nT-U7I">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                        </buttonCell>
+                    </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-Tg-edt">
+                        <rect key="frame" x="18" y="17" width="100" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="oeu-s6-wxt"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Minor" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Mn0-Pi-6vm" id="c7P-De-fyn">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="SbS-OD-T7y">
+                                <items>
+                                    <menuItem title="Critical" id="ejG-Wl-1p2"/>
+                                    <menuItem title="Major" id="Fng-kj-faF"/>
+                                    <menuItem title="Normal" id="Sv3-gc-KzV"/>
+                                    <menuItem title="Minor" state="on" id="Mn0-Pi-6vm"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-8u-3Z7">
+                        <rect key="frame" x="121" y="17" width="100" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="bGt-Id-jLI"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Code-Review" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Pbs-vY-0Uy" id="6c6-IB-zOl">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="zmc-55-EDf">
+                                <items>
+                                    <menuItem title="New" id="BYe-eB-jmb"/>
+                                    <menuItem title="Open" id="H3d-9O-3oF"/>
+                                    <menuItem title="Inprogress" id="ytn-yr-R1o"/>
+                                    <menuItem title="Code-Review" state="on" id="Pbs-vY-0Uy">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="EJV-Ob-uUB" firstAttribute="bottom" secondItem="ybq-Zf-V9H" secondAttribute="bottom" id="5ay-1O-UBJ"/>
+                    <constraint firstAttribute="bottom" secondItem="vLV-Tg-edt" secondAttribute="bottom" constant="20" symbolic="YES" id="BGe-ZG-Pfd"/>
+                    <constraint firstItem="HyT-8u-3Z7" firstAttribute="leading" secondItem="vLV-Tg-edt" secondAttribute="trailing" constant="8" symbolic="YES" id="BOq-zF-FAI"/>
+                    <constraint firstItem="vLV-Tg-edt" firstAttribute="baseline" secondItem="HyT-8u-3Z7" secondAttribute="baseline" id="CbX-2U-lhx"/>
+                    <constraint firstItem="h2K-cG-Z8F" firstAttribute="trailing" secondItem="kLF-6W-Zgr" secondAttribute="trailing" id="GzK-8Q-KAh"/>
+                    <constraint firstItem="h2K-cG-Z8F" firstAttribute="leading" secondItem="ybq-Zf-V9H" secondAttribute="leading" id="O5D-NA-5Ch"/>
+                    <constraint firstItem="kLF-6W-Zgr" firstAttribute="baseline" secondItem="HyT-8u-3Z7" secondAttribute="baseline" id="YWl-C5-E7i"/>
+                    <constraint firstItem="EJV-Ob-uUB" firstAttribute="leading" secondItem="ybq-Zf-V9H" secondAttribute="trailing" constant="8" symbolic="YES" id="aav-d3-gZr"/>
+                    <constraint firstItem="ybq-Zf-V9H" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" constant="20" symbolic="YES" id="bXh-a3-lP8"/>
+                    <constraint firstItem="vLV-Tg-edt" firstAttribute="top" secondItem="h2K-cG-Z8F" secondAttribute="bottom" constant="8" id="bmv-rv-Mfh"/>
+                    <constraint firstAttribute="trailing" secondItem="EJV-Ob-uUB" secondAttribute="trailing" constant="20" symbolic="YES" id="kvf-xK-ow0"/>
+                    <constraint firstItem="ybq-Zf-V9H" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" constant="20" symbolic="YES" id="mmf-Ua-Lyc"/>
+                    <constraint firstItem="h2K-cG-Z8F" firstAttribute="leading" secondItem="vLV-Tg-edt" secondAttribute="leading" id="tMK-ae-XWp"/>
+                    <constraint firstItem="EJV-Ob-uUB" firstAttribute="trailing" secondItem="h2K-cG-Z8F" secondAttribute="trailing" id="twe-Ru-jAW"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+            </connections>
+            <point key="canvasLocation" x="304" y="525.5"/>
+        </window>
+    </objects>
+</document>

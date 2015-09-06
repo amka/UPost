@@ -7,13 +7,21 @@
 //
 
 #import "AppDelegate.h"
+#import <CCNPreferencesWindowController.h>
+
+#import "PreferencesGeneralViewController.h"
 
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSMenu *statusBarMenu;
 
+@property (strong) CCNPreferencesWindowController *preferences;
 @property (strong) NSStatusItem *statusBarItem;
+
+- (IBAction)newIssueAction:(id)sender;
+- (IBAction)showPreferencesAction:(id)sender;
+
 @end
 
 @implementation AppDelegate
@@ -26,6 +34,12 @@
     self.statusBarItem.menu = self.statusBarMenu;
     self.statusBarItem.title = @"UP⇪";
     self.statusBarItem.highlightMode = YES;
+    
+    // Init Preferences Controller
+    self.preferences = [CCNPreferencesWindowController new];
+    self.preferences.centerToolbarItems = NO;
+    
+    [self.preferences setPreferencesViewControllers:@[[PreferencesGeneralViewController new]]];
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
@@ -36,4 +50,11 @@
     // Insert code here to tear down your application
 }
 
+- (IBAction)newIssueAction:(id)sender {
+}
+
+- (IBAction)showPreferencesAction:(id)sender {
+    
+    [self.preferences showPreferencesWindow];
+}
 @end

@@ -5,6 +5,7 @@ target 'UPost' do
 
 pod 'AFNetworking', '~> 2.6'
 pod 'SSKeychain', '~> 1.2'
+pod 'CCNPreferencesWindowController'
 
 end
 

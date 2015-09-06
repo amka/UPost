@@ -792,9 +792,17 @@ DQ
         </window>
         <menu id="9LL-mB-Gyb" userLabel="Status Bar Menu">
             <items>
-                <menuItem title="New Issue" keyEquivalent="s" id="Dti-e0-RKa"/>
+                <menuItem title="New Issue" keyEquivalent="s" id="Dti-e0-RKa">
+                    <connections>
+                        <action selector="newIssueAction:" target="Voe-Tx-rLC" id="E1E-4Q-gAv"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="BmR-DF-hAT"/>
-                <menuItem title="Preferences" keyEquivalent="," id="zZb-2O-b7i"/>
+                <menuItem title="Preferences" keyEquivalent="," id="zZb-2O-b7i">
+                    <connections>
+                        <action selector="showPreferencesAction:" target="Voe-Tx-rLC" id="Pcl-ro-rWb"/>
+                    </connections>
+                </menuItem>
                 <menuItem isSeparatorItem="YES" id="o2a-ua-7AK"/>
                 <menuItem title="Quit" keyEquivalent="q" id="Pq0-6U-XUI">
                     <connections>
