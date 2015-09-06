@@ -48,6 +48,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
+    
+    [self checkAuthentication];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
@@ -69,11 +72,24 @@
 - (void)checkAuthentication {
     [[YTAPIManager sharedManager] GET:@"/rest/user/current" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // S
-        NSLog(@"Hello :)");
+        if (operation.response.statusCode == 200) {
+            NSLog(@"Hello %@", responseObject);
+        } else {
+            NSLog(@"User unauthorized.");
+            [self.preferences showPreferencesWindow];
+        }
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // F
         NSLog(@"User unauthorized.");
         [self.preferences showPreferencesWindow];
     }];
+}
+
+- (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    
+    if ([notification.userInfo objectForKey:@"IssueURL"]) {
+        [[NSWorkspace sharedWorkspace] openURL:[notification.userInfo objectForKey:@"IssueURL"]];
+    }
 }
 @end

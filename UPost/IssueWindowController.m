@@ -15,10 +15,21 @@
 @property NSMutableArray *ytAccessiblePojects;
 @property (strong) IBOutlet NSArrayController *accessibleArrayController;
 
+@property (weak) IBOutlet NSTextField *titleField;
+@property (weak) IBOutlet NSTextField *descriptionField;
+@property (weak) IBOutlet NSPopUpButton *priorityField;
+@property (weak) IBOutlet NSPopUpButton *stateField;
+
 - (IBAction)sendIssueAction:(id)sender;
+
 @end
 
 @implementation IssueWindowController
+
+- (void)showWindow:(id)sender {
+    [super showWindow:sender];
+    [self getAccessibleProjects];
+}
 
 - (void)windowDidLoad {
     [super windowDidLoad];
@@ -29,8 +40,7 @@
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
-        
-        [self getAccessibleProjects];
+        // Init
     }
     return self;
 }
@@ -69,6 +79,57 @@
     [[NSUserDefaults standardUserDefaults] setInteger:self.accessibleArrayController.selectionIndex forKey:@"Last Selected Project"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSLog(@"Create Issue in Project: %@", self.accessibleArrayController.selectedObjects[0]);
+    if (self.titleField.stringValue.length <= 0) {
+        [self.titleField becomeFirstResponder];
+    }
+    
+    if (self.descriptionField.stringValue.length <= 0) {
+        [self.descriptionField becomeFirstResponder];
+    }
+
+    NSDictionary *newIssueParams = @{@"project":[self.accessibleArrayController.selectedObjects[0] objectForKey:@"shortName"],
+                                     @"summary":self.titleField.stringValue,
+                                     @"description": self.descriptionField.stringValue};
+    NSLog(@"Create Issue with data %@", newIssueParams);
+    
+    [[YTAPIManager sharedManager] POST:@"/rest/issue" parameters:newIssueParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // S
+        NSXMLElement *root = [responseObject rootElement];
+        NSLog(@"SUC: %ld %@", operation.response.statusCode, responseObject);
+        
+        
+        NSUserNotification *notification = [NSUserNotification new];
+        notification.title = @"UPost";
+        
+        if (operation.response.statusCode == 201) {
+            
+            NSString *issueLocationString = [[[[operation response] allHeaderFields] objectForKey:@"Location"] stringValue];
+            NSLog(@"Issue location: %@", responseObject);
+            if (issueLocationString != nil && [issueLocationString containsString:@"/rest/"]) {
+                NSURL *issueURL = [NSURL URLWithString:[issueLocationString stringByReplacingOccurrencesOfString:@"/rest/" withString:@"/"]];
+                NSLog(@"Issue URL: %@", issueURL.absoluteString);
+                notification.userInfo = @{@"IssueURL": issueURL};
+            }
+            
+            // Send user notification
+            notification.informativeText = NSLocalizedString(@"Issue successfulle created!", @"issue successfully created");
+            notification.soundName = @"Glass";
+            notification.hasActionButton = YES;
+            notification.actionButtonTitle = NSLocalizedString(@"View issue", @"view issue");
+            
+        } else {
+            // Notify user 'bout failed action
+            notification.informativeText = NSLocalizedString(@"Failed to create issue", @"failed to create issue");
+            notification.soundName = @"Basso";
+            notification.hasActionButton = YES;
+            notification.actionButtonTitle = NSLocalizedString(@"New issue", @"view issue");
+        }
+        
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // F
+        NSLog(@"ERR: %@", error.description);
+    }];
 }
+
 @end

@@ -7,6 +7,10 @@
         <customObject id="-2" userLabel="File's Owner" customClass="IssueWindowController">
             <connections>
                 <outlet property="accessibleArrayController" destination="c4h-mR-vPp" id="HWa-YC-C9O"/>
+                <outlet property="descriptionField" destination="h2K-cG-Z8F" id="caI-gG-Bvj"/>
+                <outlet property="priorityField" destination="vLV-Tg-edt" id="09n-be-kui"/>
+                <outlet property="stateField" destination="HyT-8u-3Z7" id="pdg-El-3qt"/>
+                <outlet property="titleField" destination="ybq-Zf-V9H" id="cXF-6w-8W6"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
