@@ -13,6 +13,8 @@
 		2AD4AC701B96197600021DBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2AD4AC6F1B96197600021DBE /* Images.xcassets */; };
 		2AD4AC731B96197600021DBE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2AD4AC711B96197600021DBE /* MainMenu.xib */; };
 		2AD4AC7F1B96197600021DBE /* UPostTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AD4AC7E1B96197600021DBE /* UPostTests.m */; };
+		2ADF24341B9C627F00EBFBFA /* IssueWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF24321B9C627F00EBFBFA /* IssueWindowController.m */; };
+		2ADF24351B9C627F00EBFBFA /* IssueWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF24331B9C627F00EBFBFA /* IssueWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,9 @@
 		2AD4AC781B96197600021DBE /* UPostTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UPostTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2AD4AC7D1B96197600021DBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AD4AC7E1B96197600021DBE /* UPostTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPostTests.m; sourceTree = "<group>"; };
+		2ADF24311B9C627F00EBFBFA /* IssueWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueWindowController.h; sourceTree = "<group>"; };
+		2ADF24321B9C627F00EBFBFA /* IssueWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueWindowController.m; sourceTree = "<group>"; };
+		2ADF24331B9C627F00EBFBFA /* IssueWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IssueWindowController.xib; sourceTree = "<group>"; };
 		7C7E47C6296FD78DBE25CF05 /* libPods-UPost.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPost.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		978778CE21F94C64E9366C8C /* Pods-UPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPost/Pods-UPost.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -88,6 +93,9 @@
 				2AD4AC6F1B96197600021DBE /* Images.xcassets */,
 				2AD4AC711B96197600021DBE /* MainMenu.xib */,
 				2AD4AC681B96197600021DBE /* Supporting Files */,
+				2ADF24311B9C627F00EBFBFA /* IssueWindowController.h */,
+				2ADF24321B9C627F00EBFBFA /* IssueWindowController.m */,
+				2ADF24331B9C627F00EBFBFA /* IssueWindowController.xib */,
 			);
 			path = UPost;
 			sourceTree = "<group>";
@@ -217,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADF24351B9C627F00EBFBFA /* IssueWindowController.xib in Resources */,
 				2AD4AC701B96197600021DBE /* Images.xcassets in Resources */,
 				2AD4AC731B96197600021DBE /* MainMenu.xib in Resources */,
 			);
@@ -271,6 +280,7 @@
 			files = (
 				2AD4AC6E1B96197600021DBE /* main.m in Sources */,
 				2AD4AC6C1B96197600021DBE /* AppDelegate.m in Sources */,
+				2ADF24341B9C627F00EBFBFA /* IssueWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +350,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -377,7 +387,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

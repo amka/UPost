@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="15A278b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
@@ -14,7 +14,7 @@
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
-                <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
+                <outlet property="statusBarMenu" destination="9LL-mB-Gyb" id="MSV-vJ-K9g"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
@@ -667,23 +667,11 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="UPost" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-            <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <animations/>
-            </view>
-            <point key="canvasLocation" x="305" y="363"/>
-        </window>
-        <window title="New Issue" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" frameAutosaveName="" animationBehavior="default" id="wbn-1d-5cM" customClass="NSPanel">
+        <window title="New Issue" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="wbn-1d-5cM">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="113" y="439" width="480" height="262"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="Dca-Xo-7xn">
                 <rect key="frame" x="0.0" y="3" width="480" height="262"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -700,7 +688,7 @@
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="9QP-9Z-U4T">
                         <rect key="frame" x="20" y="49" width="440" height="161"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="161" id="8zn-Cj-UOy"/>
+                            <constraint firstAttribute="height" constant="161" id="x3Q-pU-g5o"/>
                         </constraints>
                         <animations/>
                         <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Issue description" drawsBackground="YES" id="ajh-5B-MPL">
@@ -712,15 +700,15 @@
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X3k-xE-ubx">
                         <rect key="frame" x="284" y="218" width="179" height="26"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="174" id="ROd-8P-e3y"/>
+                            <constraint firstAttribute="width" constant="174" id="fEq-vG-85C"/>
                         </constraints>
                         <animations/>
-                        <popUpButtonCell key="cell" type="push" title="Plan A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="d95-1E-Xpf" id="GQw-Vm-sbn">
+                        <popUpButtonCell key="cell" type="push" title="Plan A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="d95-1E-Xpf" id="GQw-Vm-sbn">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="oqr-zJ-LgB">
                                 <items>
-                                    <menuItem title="Plan A" id="d95-1E-Xpf"/>
+                                    <menuItem title="Plan A" state="on" id="d95-1E-Xpf"/>
                                     <menuItem title="Silent Cell" id="3fB-F8-j2L"/>
                                     <menuItem title="Pandora B" id="fgR-kf-DbO"/>
                                     <menuItem title="Support" id="3Jc-uI-jhZ"/>
@@ -730,28 +718,90 @@
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AmI-aK-ob0">
                         <rect key="frame" x="359" y="13" width="107" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="pld-Jl-vvB"/>
+                        </constraints>
                         <animations/>
                         <buttonCell key="cell" type="push" title="Send Issue" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ASR-BE-Neg">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                         </buttonCell>
                     </button>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8m9-9d-9cr">
+                        <rect key="frame" x="18" y="17" width="100" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="qXR-12-i1g"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Minor" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="eGa-H4-bSz" id="Lt8-Yv-1hl">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="eNU-hN-ZUj">
+                                <items>
+                                    <menuItem title="Critical" id="lr7-dn-LcH"/>
+                                    <menuItem title="Major" id="lQc-iL-dVo"/>
+                                    <menuItem title="Normal" id="y0c-Fh-iGc"/>
+                                    <menuItem title="Minor" state="on" id="eGa-H4-bSz"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
+                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nzp-To-ZTr">
+                        <rect key="frame" x="121" y="17" width="100" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="95" id="0AC-gO-NCH"/>
+                        </constraints>
+                        <popUpButtonCell key="cell" type="push" title="Code-Review" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Bco-ib-11b" id="urf-Eo-2MM">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="5dz-8J-hwA">
+                                <items>
+                                    <menuItem title="New" id="dQb-e7-zhS"/>
+                                    <menuItem title="Open" id="ssT-Jm-TrR"/>
+                                    <menuItem title="Inprogress" id="dsq-DD-emB"/>
+                                    <menuItem title="Code-Review" state="on" id="Bco-ib-11b">
+                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                    </menuItem>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                    </popUpButton>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9QP-9Z-U4T" firstAttribute="leading" secondItem="GCR-PP-mX9" secondAttribute="leading" id="ENT-89-8dh"/>
-                    <constraint firstItem="AmI-aK-ob0" firstAttribute="top" secondItem="9QP-9Z-U4T" secondAttribute="bottom" constant="8" symbolic="YES" id="K7Q-PO-XDA"/>
-                    <constraint firstItem="X3k-xE-ubx" firstAttribute="top" secondItem="Dca-Xo-7xn" secondAttribute="top" constant="20" symbolic="YES" id="PVh-GO-Fyu"/>
-                    <constraint firstItem="X3k-xE-ubx" firstAttribute="trailing" secondItem="9QP-9Z-U4T" secondAttribute="trailing" id="QlX-X5-CN4"/>
-                    <constraint firstAttribute="trailing" secondItem="X3k-xE-ubx" secondAttribute="trailing" constant="20" symbolic="YES" id="SYa-Dt-2Zg"/>
-                    <constraint firstItem="X3k-xE-ubx" firstAttribute="leading" secondItem="GCR-PP-mX9" secondAttribute="trailing" constant="8" symbolic="YES" id="X13-aN-ctq"/>
-                    <constraint firstAttribute="bottom" secondItem="AmI-aK-ob0" secondAttribute="bottom" constant="20" symbolic="YES" id="cJI-mc-RSh"/>
-                    <constraint firstItem="AmI-aK-ob0" firstAttribute="trailing" secondItem="9QP-9Z-U4T" secondAttribute="trailing" id="vpY-Gf-sX9"/>
-                    <constraint firstItem="X3k-xE-ubx" firstAttribute="baseline" secondItem="GCR-PP-mX9" secondAttribute="baseline" id="wa2-NB-bfF"/>
-                    <constraint firstItem="GCR-PP-mX9" firstAttribute="leading" secondItem="Dca-Xo-7xn" secondAttribute="leading" constant="20" symbolic="YES" id="yAc-48-SkJ"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="bottom" secondItem="GCR-PP-mX9" secondAttribute="bottom" id="3nm-bO-d0O"/>
+                    <constraint firstAttribute="bottom" secondItem="8m9-9d-9cr" secondAttribute="bottom" constant="20" symbolic="YES" id="4Z8-zn-pBa"/>
+                    <constraint firstItem="GCR-PP-mX9" firstAttribute="leading" secondItem="9QP-9Z-U4T" secondAttribute="leading" id="4jo-Yi-tn3"/>
+                    <constraint firstItem="GCR-PP-mX9" firstAttribute="leading" secondItem="Dca-Xo-7xn" secondAttribute="leading" constant="20" symbolic="YES" id="9dT-54-NF6"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="top" secondItem="Dca-Xo-7xn" secondAttribute="top" constant="20" symbolic="YES" id="H1V-3w-BTS"/>
+                    <constraint firstAttribute="trailing" secondItem="X3k-xE-ubx" secondAttribute="trailing" constant="20" symbolic="YES" id="LbA-vK-LSb"/>
+                    <constraint firstItem="nzp-To-ZTr" firstAttribute="baseline" secondItem="AmI-aK-ob0" secondAttribute="baseline" id="WjO-nr-k33"/>
+                    <constraint firstItem="X3k-xE-ubx" firstAttribute="leading" secondItem="GCR-PP-mX9" secondAttribute="trailing" constant="8" symbolic="YES" id="XQp-Ob-xP2"/>
+                    <constraint firstItem="9QP-9Z-U4T" firstAttribute="trailing" secondItem="X3k-xE-ubx" secondAttribute="trailing" id="bPP-Jc-yCA"/>
+                    <constraint firstItem="AmI-aK-ob0" firstAttribute="trailing" secondItem="9QP-9Z-U4T" secondAttribute="trailing" id="dht-Wh-you"/>
+                    <constraint firstItem="9QP-9Z-U4T" firstAttribute="leading" secondItem="8m9-9d-9cr" secondAttribute="leading" id="hUa-m3-Xs4"/>
+                    <constraint firstItem="nzp-To-ZTr" firstAttribute="leading" secondItem="8m9-9d-9cr" secondAttribute="trailing" constant="8" symbolic="YES" id="hcB-Np-S6c"/>
+                    <constraint firstItem="8m9-9d-9cr" firstAttribute="top" secondItem="9QP-9Z-U4T" secondAttribute="bottom" constant="8" id="ur5-CZ-AbR"/>
+                    <constraint firstItem="8m9-9d-9cr" firstAttribute="baseline" secondItem="nzp-To-ZTr" secondAttribute="baseline" id="vKb-Nx-Oh0"/>
                 </constraints>
                 <animations/>
             </view>
-            <point key="canvasLocation" x="297" y="388"/>
+            <point key="canvasLocation" x="301" y="447"/>
         </window>
+        <menu id="9LL-mB-Gyb" userLabel="Status Bar Menu">
+            <items>
+                <menuItem title="New Issue" keyEquivalent="s" id="Dti-e0-RKa"/>
+                <menuItem isSeparatorItem="YES" id="BmR-DF-hAT"/>
+                <menuItem title="Preferences" keyEquivalent="," id="zZb-2O-b7i"/>
+                <menuItem isSeparatorItem="YES" id="o2a-ua-7AK"/>
+                <menuItem title="Quit" keyEquivalent="q" id="Pq0-6U-XUI">
+                    <connections>
+                        <action selector="terminate:" target="-2" id="Peb-yr-m89"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
 </document>

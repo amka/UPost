@@ -11,9 +11,22 @@
 @interface AppDelegate ()
 
 @property (weak) IBOutlet NSWindow *window;
+@property (weak) IBOutlet NSMenu *statusBarMenu;
+
+@property (strong) NSStatusItem *statusBarItem;
 @end
 
 @implementation AppDelegate
+
+- (void)awakeFromNib {
+    
+    // Init statsBar Item
+    self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+    
+    self.statusBarItem.menu = self.statusBarMenu;
+    self.statusBarItem.title = @"UP⇪";
+    self.statusBarItem.highlightMode = YES;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
