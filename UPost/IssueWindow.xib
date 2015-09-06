@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="IssueWindowController">
             <connections>
+                <outlet property="accessibleArrayController" destination="c4h-mR-vPp" id="HWa-YC-C9O"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -44,18 +45,22 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="174" id="lkx-8E-FiX"/>
                         </constraints>
-                        <popUpButtonCell key="cell" type="push" title="Plan A" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="vE0-gx-GHJ" id="v8d-mc-tOJ">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="v8d-mc-tOJ">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" id="vka-ih-Bbv">
                                 <items>
-                                    <menuItem title="Plan A" state="on" id="vE0-gx-GHJ"/>
+                                    <menuItem title="Plan A" id="vE0-gx-GHJ"/>
                                     <menuItem title="Silent Cell" id="IxP-67-6x5"/>
                                     <menuItem title="Pandora B" id="f9U-PP-LBv"/>
                                     <menuItem title="Support" id="8Iu-Zr-g9E"/>
                                 </items>
                             </menu>
                         </popUpButtonCell>
+                        <connections>
+                            <binding destination="c4h-mR-vPp" name="contentValues" keyPath="arrangedObjects.name" id="BhS-zV-Pm1"/>
+                            <binding destination="c4h-mR-vPp" name="selectedIndex" keyPath="selectionIndex" previousBinding="BhS-zV-Pm1" id="lQK-Ul-brF"/>
+                        </connections>
                     </popUpButton>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kLF-6W-Zgr">
                         <rect key="frame" x="359" y="13" width="107" height="32"/>
@@ -70,6 +75,9 @@ DQ
 </string>
                             <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="sendIssueAction:" target="-2" id="UXZ-NP-3DF"/>
+                        </connections>
                     </button>
                     <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vLV-Tg-edt">
                         <rect key="frame" x="18" y="17" width="100" height="26"/>
@@ -132,5 +140,12 @@ DQ
             </connections>
             <point key="canvasLocation" x="402" y="388.5"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="O0W-uh-KRz"/>
+        <arrayController automaticallyPreparesContent="YES" id="c4h-mR-vPp" userLabel="Projects Array Controller">
+            <declaredKeys>
+                <string>name</string>
+                <string>shortName</string>
+            </declaredKeys>
+        </arrayController>
     </objects>
 </document>
