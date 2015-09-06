@@ -38,6 +38,7 @@
     // Do view setup here.
     
     [self.signinFormView addSubview:self.signInView];
+    [self fillCurrentUserInfo];
 }
 
 - (instancetype)init {

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <CCNPreferencesWindowController.h>
 
+#import "YTAPIManager.h"
 #import "IssueWindowController.h"
 #import "PreferencesGeneralViewController.h"
 
@@ -63,5 +64,16 @@
 - (IBAction)showPreferencesAction:(id)sender {
     
     [self.preferences showPreferencesWindow];
+}
+
+- (void)checkAuthentication {
+    [[YTAPIManager sharedManager] GET:@"/rest/user/current" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // S
+        NSLog(@"Hello :)");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // F
+        NSLog(@"User unauthorized.");
+        [self.preferences showPreferencesWindow];
+    }];
 }
 @end

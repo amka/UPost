@@ -45,6 +45,7 @@
 
 - (void)clearAuth {
     [self.requestSerializer clearAuthorizationHeader];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 @end
