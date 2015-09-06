@@ -17,6 +17,7 @@
 		2ADF24351B9C627F00EBFBFA /* IssueWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF24331B9C627F00EBFBFA /* IssueWindowController.xib */; };
 		2ADF243F1B9C6C4300EBFBFA /* PreferencesGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF243D1B9C6C4300EBFBFA /* PreferencesGeneralViewController.m */; };
 		2ADF24401B9C6C4300EBFBFA /* PreferencesGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ADF243E1B9C6C4300EBFBFA /* PreferencesGeneralViewController.xib */; };
+		2ADF24431B9C8F9600EBFBFA /* YTAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ADF24421B9C8F9600EBFBFA /* YTAPIManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		2ADF243C1B9C6C4300EBFBFA /* PreferencesGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesGeneralViewController.h; sourceTree = "<group>"; };
 		2ADF243D1B9C6C4300EBFBFA /* PreferencesGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesGeneralViewController.m; sourceTree = "<group>"; };
 		2ADF243E1B9C6C4300EBFBFA /* PreferencesGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferencesGeneralViewController.xib; sourceTree = "<group>"; };
+		2ADF24411B9C8F9600EBFBFA /* YTAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTAPIManager.h; sourceTree = "<group>"; };
+		2ADF24421B9C8F9600EBFBFA /* YTAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTAPIManager.m; sourceTree = "<group>"; };
 		7C7E47C6296FD78DBE25CF05 /* libPods-UPost.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UPost.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		978778CE21F94C64E9366C8C /* Pods-UPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UPost.release.xcconfig"; path = "Pods/Target Support Files/Pods-UPost/Pods-UPost.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +105,8 @@
 				2ADF24311B9C627F00EBFBFA /* IssueWindowController.h */,
 				2ADF24321B9C627F00EBFBFA /* IssueWindowController.m */,
 				2ADF24331B9C627F00EBFBFA /* IssueWindowController.xib */,
+				2ADF24411B9C8F9600EBFBFA /* YTAPIManager.h */,
+				2ADF24421B9C8F9600EBFBFA /* YTAPIManager.m */,
 			);
 			path = UPost;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 				2ADF243F1B9C6C4300EBFBFA /* PreferencesGeneralViewController.m in Sources */,
 				2AD4AC6E1B96197600021DBE /* main.m in Sources */,
 				2AD4AC6C1B96197600021DBE /* AppDelegate.m in Sources */,
+				2ADF24431B9C8F9600EBFBFA /* YTAPIManager.m in Sources */,
 				2ADF24341B9C627F00EBFBFA /* IssueWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

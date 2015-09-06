@@ -9,14 +9,22 @@
 #import "PreferencesGeneralViewController.h"
 #import <CCNPreferencesWindowController.h>
 
+#import "YTAPIManager.h"
+
 @interface PreferencesGeneralViewController () <CCNPreferencesWindowControllerProtocol>
 
 @property NSString *userFullname;
 @property NSString *userEmail;
+@property NSURL *userAvatarURL;
 
 @property (weak) IBOutlet NSView *signinFormView;
 @property (strong) IBOutlet NSView *signInView;
 @property (strong) IBOutlet NSView *signedView;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
+
+@property (weak) IBOutlet NSTextField *youtrackHost;
+@property (weak) IBOutlet NSTextField *youtrackLogin;
+@property (weak) IBOutlet NSSecureTextField *youtrackPassword;
 
 - (IBAction)signInAction:(id)sender;
 - (IBAction)signOutAction:(id)sender;
@@ -48,10 +56,63 @@
 
 - (IBAction)signInAction:(id)sender {
     
-    [self.signinFormView replaceSubview:self.signInView with:self.signedView];
+    if (_youtrackHost.stringValue.length <= 0) {
+        [_youtrackHost becomeFirstResponder];
+    }
+    
+    if (_youtrackLogin.stringValue.length <= 0) {
+        [_youtrackLogin becomeFirstResponder];
+    }
+    
+    if (_youtrackPassword.stringValue.length <= 0) {
+        [_youtrackPassword becomeFirstResponder];
+    }
+    
+    NSLog(@"YT BASE URL: %@", [[YTAPIManager sharedManager] baseURL]);
+    
+    // Init Youtrack REST Client Singleton
+    [[YTAPIManager sharedManager] clearAuth];
+    
+    NSDictionary *signinParams = @{@"login": self.youtrackLogin.stringValue, @"password": self.youtrackPassword.stringValue};
+    
+    // Try to sign in
+    [[YTAPIManager sharedManager] POST:@"/rest/user/login" parameters:signinParams success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // S
+        NSLog(@"GOT SIGNIN DATA: %@", responseObject);
+        [self fillCurrentUserInfo];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // F
+        NSLog(@"GOT AN ERROR: %@", error.description);
+        [self.progressIndicator stopAnimation:nil];
+    }];
 }
 
 - (IBAction)signOutAction:(id)sender {
+    // Clear auth headers
+    [[YTAPIManager sharedManager] clearAuth];
+    
+    // And swap signed view to sign in form
     [self.signinFormView replaceSubview:self.signedView with:self.signInView];
+}
+
+- (void)fillCurrentUserInfo {
+    [[YTAPIManager sharedManager] GET:@"/rest/user/current" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // S
+        NSXMLElement *userElement = [responseObject rootElement];
+        self.userFullname = [[userElement attributeForName:@"fullName"] stringValue];
+        self.userEmail = [[userElement attributeForName:@"email"] stringValue];
+        self.userAvatarURL = [NSURL URLWithString:[[userElement attributeForName:@"avatar"] stringValue]];
+        
+//        NSLog(@"GOT USER DATA: %@", [responseObject elementsForName:@"user"]);
+        [self.progressIndicator stopAnimation:nil];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        // F
+        NSLog(@"GOT AN ERROR: %@", error.description);
+        [self.progressIndicator stopAnimation:nil];
+    }];
+    
+    [self.signinFormView replaceSubview:self.signInView with:self.signedView];
 }
 @end
