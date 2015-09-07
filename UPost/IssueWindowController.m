@@ -101,34 +101,35 @@
         NSUserNotification *notification = [NSUserNotification new];
         notification.title = @"UPost";
         
-        if (operation.response.statusCode == 201) {
-            
-            NSString *issueLocationString = [[[[operation response] allHeaderFields] objectForKey:@"Location"] stringValue];
-            NSLog(@"Issue location: %@", responseObject);
-            if (issueLocationString != nil && [issueLocationString containsString:@"/rest/"]) {
-                NSURL *issueURL = [NSURL URLWithString:[issueLocationString stringByReplacingOccurrencesOfString:@"/rest/" withString:@"/"]];
-                NSLog(@"Issue URL: %@", issueURL.absoluteString);
-                notification.userInfo = @{@"IssueURL": issueURL};
-            }
-            
-            // Send user notification
-            notification.informativeText = NSLocalizedString(@"Issue successfulle created!", @"issue successfully created");
-            notification.soundName = @"Glass";
-            notification.hasActionButton = YES;
-            notification.actionButtonTitle = NSLocalizedString(@"View issue", @"view issue");
-            
-        } else {
-            // Notify user 'bout failed action
-            notification.informativeText = NSLocalizedString(@"Failed to create issue", @"failed to create issue");
-            notification.soundName = @"Basso";
-            notification.hasActionButton = YES;
-            notification.actionButtonTitle = NSLocalizedString(@"New issue", @"view issue");
-        }
+        NSString *issueURLString = [NSString stringWithFormat:@"%@/issue/%@",
+                                    [[YTAPIManager sharedManager] baseURL],
+                                    [[root attributeForName:@"id"] stringValue]];
+        
+        NSLog(@"Issue URL: %@", issueURLString);
+        notification.userInfo = @{@"IssueURLString": issueURLString};
+        
+        // Send user notification
+        notification.informativeText = NSLocalizedString(@"Issue successfulle created!", @"issue successfully created");
+        notification.soundName = @"Glass";
+        notification.hasActionButton = YES;
+        notification.actionButtonTitle = NSLocalizedString(@"View issue", @"view issue");
         
         [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // F
         NSLog(@"ERR: %@", error.description);
+        
+        NSUserNotification *notification = [NSUserNotification new];
+        notification.title = @"UPost";
+        // Notify user 'bout failed action
+        notification.informativeText = NSLocalizedString(@"Failed to create issue", @"failed to create issue");
+        notification.soundName = @"Basso";
+        notification.hasActionButton = YES;
+        notification.actionButtonTitle = NSLocalizedString(@"New issue", @"view issue");
+        
+        [[NSUserNotificationCenter defaultUserNotificationCenter] deliverNotification:notification];
+        
     }];
 }
 

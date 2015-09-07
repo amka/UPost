@@ -38,7 +38,10 @@
     // Do view setup here.
     
     [self.signinFormView addSubview:self.signInView];
-    [self fillCurrentUserInfo];
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"Youtrack URL"]) {
+        [self fillCurrentUserInfo];
+    }
 }
 
 - (instancetype)init {
@@ -62,6 +65,8 @@
     
     if (_youtrackHost.stringValue.length <= 0) {
         [_youtrackHost becomeFirstResponder];
+    } else {
+        [[YTAPIManager sharedManager] setBaseURL:[NSURL URLWithString:self.youtrackHost.stringValue]];
     }
     
     if (_youtrackLogin.stringValue.length <= 0) {
@@ -114,14 +119,15 @@
         
 //        NSLog(@"GOT USER DATA: %@", [responseObject elementsForName:@"user"]);
         [self.progressIndicator stopAnimation:nil];
+        [self.signinFormView replaceSubview:self.signInView with:self.signedView];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // F
         NSLog(@"GOT AN ERROR: %@", error.description);
         [self.progressIndicator stopAnimation:nil];
+        [self.signinFormView replaceSubview:self.signedView with:self.signInView];
     }];
     
-    [self.signinFormView replaceSubview:self.signInView with:self.signedView];
     [self enableYoutrackFields];
 }
 

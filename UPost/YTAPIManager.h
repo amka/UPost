@@ -11,8 +11,11 @@
 
 @interface YTAPIManager : AFHTTPRequestOperationManager
 
+@property (strong) NSURL *baseURL;
+
 //- (void)setUsername:(NSString *)username andPassword:(NSString *)password;
 - (void)clearAuth;
+- (void)setBaseURL:(NSURL *)baseURL;
 
 + (YTAPIManager *)sharedManager;
 

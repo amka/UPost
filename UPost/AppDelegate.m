@@ -70,26 +70,39 @@
 }
 
 - (void)checkAuthentication {
-    [[YTAPIManager sharedManager] GET:@"/rest/user/current" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // S
-        if (operation.response.statusCode == 200) {
-            NSLog(@"Hello %@", responseObject);
-        } else {
+    // Check youtrack host in user defaults before request
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"Youtrack URL"]) {
+        [self.preferences showPreferencesWindow];
+        
+    } else {
+        [[YTAPIManager sharedManager] GET:@"/rest/user/current" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            // S
+            if (operation.response.statusCode == 200) {
+                NSLog(@"Hello %@", responseObject);
+            } else {
+                NSLog(@"User unauthorized.");
+                [self.preferences showPreferencesWindow];
+            }
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            // F
             NSLog(@"User unauthorized.");
             [self.preferences showPreferencesWindow];
-        }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        // F
-        NSLog(@"User unauthorized.");
-        [self.preferences showPreferencesWindow];
-    }];
+        }];
+    }
 }
 
 - (void)userNotificationCenter:(NSUserNotificationCenter *)center didActivateNotification:(NSUserNotification *)notification {
+    NSLog(@"Notificatio activated: %@", notification.userInfo);
     
-    if ([notification.userInfo objectForKey:@"IssueURL"]) {
-        [[NSWorkspace sharedWorkspace] openURL:[notification.userInfo objectForKey:@"IssueURL"]];
+    NSString *issueURLString = [notification.userInfo objectForKey:@"IssueURLString"];
+    
+    if (issueURLString) {
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:issueURLString]];
     }
+}
+
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification {
+    return YES;
 }
 @end
